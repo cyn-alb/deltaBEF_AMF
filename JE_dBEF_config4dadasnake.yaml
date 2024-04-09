@@ -1,0 +1,61 @@
+email: "cynthia.albracht@ufz.de"
+raw_directory: "/gpfs1/data/project/metaamp/DATA/JenaExperiment/JE-dBEF-PN2021_AMF"
+sample_table: "/gpfs1/data/project/metaamp/DATA/JenaExperiment/JE-dBEF_samples.tsv"
+do_primers: true
+do_dada: true
+do_taxonomy: true
+do_postprocessing: true
+primers:
+  fwd: 
+    sequence: TTGGAGGGCAAGTCTGGTGCC
+    name: NS31
+  rvs: 
+    sequence: GAACCCAAACACTTTGGTTTCC
+    name: AML2
+paired: true
+sequencing_direction: "unknown"
+filtering:
+  trunc_length:
+    fwd: 0
+    rvs: 0
+  trunc_qual: 
+    fwd: 7
+    rvs: 7
+  max_EE:
+    fwd: 2
+    rvs: 2
+  minLen:
+    fwd: 260
+    rvs: 210
+  maxLen:
+    fwd: Inf
+    rvs: Inf
+  minQ:
+    fwd: 0
+    rvs: 0
+outputdir: "/gpfs1/work/albracht/JenaExperiment/dBEF/AMF.t1"
+taxonomy:
+  decipher:
+    do: false
+  mothur:
+    do: true
+    db_path: "/gpfs1/data/project/metaamp/DBs/amplicon2020/"
+    tax_db: "SILVA_138_SSURef_NR99_euk.NS31.AML2"
+blast:
+  do: false
+  db_path: "/data/project/metaamp/DBs/amplicon"
+  tax_db: "MaarjAM_vt_types.20150204.format.fasta"
+  tax2id: ""
+  all: true
+hand_off:
+  biom: true
+  phyloseq: true
+final_table_filtering:
+  do: true
+  keep_target_taxa: "Glomeromycotina"
+postprocessing:
+  rarefaction_curve: true
+  funguild:
+    do: false
+  treeing:
+    do: true
